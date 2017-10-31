@@ -15,7 +15,11 @@ public class EdicaoConteudo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+<<<<<<< HEAD
 	private int idEdicaoConteudo;
+=======
+	private int idEdConteudo;
+>>>>>>> 6b8b5875baab6642814421a7d5f37407e8fbcafc
 
 	@Temporal(TemporalType.DATE)
 	private Date data;
@@ -33,12 +37,21 @@ public class EdicaoConteudo implements Serializable {
 	public EdicaoConteudo() {
 	}
 
+<<<<<<< HEAD
 	public int getIdEdicaoConteudo() {
 		return this.idEdicaoConteudo;
 	}
 
 	public void setIdEdicaoConteudo(int idEdicaoConteudo) {
 		this.idEdicaoConteudo = idEdicaoConteudo;
+=======
+	public int getIdEdConteudo() {
+		return this.idEdConteudo;
+	}
+
+	public void setIdEdConteudo(int idEdConteudo) {
+		this.idEdConteudo = idEdConteudo;
+>>>>>>> 6b8b5875baab6642814421a7d5f37407e8fbcafc
 	}
 
 	public Date getData() {
