@@ -6,6 +6,7 @@ import com.coexistir.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 	
-	public Usuario findByIdUsuarioLike(Integer idUsuario);
+	Usuario findByIdUsuarioLike(Integer idUsuario);
+	Usuario findByApelidoAndSenhaLike(String apelido, String senha);
 
 }

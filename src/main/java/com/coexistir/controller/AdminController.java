@@ -61,6 +61,17 @@ public class AdminController {
 		return new ResponseEntity<Admin>(admin, HttpStatus.OK);
 	}
 	
+	// LOGIN DE ADMIN
+		@RequestMapping(value = "{apelido}/{senha}", method = RequestMethod.GET)
+		public ResponseEntity<Admin> fazerLogin(@PathVariable String apelido, @PathVariable String senha){
+			
+			Admin admin = this.adminRep.findByApelidoAndSenhaLike(apelido, senha);
+			if (admin == null) {
+				return new ResponseEntity(new CustomErrorType("Login ou senha incorretos."), HttpStatus.OK);
+			}
+			return new ResponseEntity(admin, HttpStatus.OK);
+		}
+	
 	// EXCLUINDO USUÁRIO (POR ID)
 	@RequestMapping(value = "{idAdmin}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> excluirAdminPorId(@PathVariable("idAdmin") Integer idAdmin){

@@ -41,13 +41,13 @@ public class Admin implements Serializable {
 
 	private String uf;
 
-	//bi-directional many-to-one association to EdicaoConteudo
+	//bi-directional many-to-one association to Edicao
 	@OneToMany(mappedBy="admin")
-	private List<EdicaoConteudo> edicaoConteudos;
+	private List<Edicao> edicaos;
 
-	//bi-directional many-to-one association to ElevarAdmin
+	//bi-directional many-to-one association to Elevacao
 	@OneToMany(mappedBy="admin")
-	private List<ElevarAdmin> elevarAdmins;
+	private List<Elevacao> elevacaos;
 
 	public Admin() {
 	}
@@ -140,48 +140,48 @@ public class Admin implements Serializable {
 		this.uf = uf;
 	}
 
-	public List<EdicaoConteudo> getEdicaoconteudos() {
-		return this.edicaoConteudos;
+	public List<Edicao> getEdicaos() {
+		return this.edicaos;
 	}
 
-	public void setEdicaoconteudos(List<EdicaoConteudo> edicaoConteudos) {
-		this.edicaoConteudos = edicaoConteudos;
+	public void setEdicaos(List<Edicao> edicaos) {
+		this.edicaos = edicaos;
 	}
 
-	public EdicaoConteudo addEdicaoconteudo(EdicaoConteudo edicaoConteudo) {
-		getEdicaoconteudos().add(edicaoConteudo);
-		edicaoConteudo.setAdmin(this);
+	public Edicao addEdicao(Edicao edicao) {
+		getEdicaos().add(edicao);
+		edicao.setAdmin(this);
 
-		return edicaoConteudo;
+		return edicao;
 	}
 
-	public EdicaoConteudo removeEdicaoconteudo(EdicaoConteudo edicaoConteudo) {
-		getEdicaoconteudos().remove(edicaoConteudo);
-		edicaoConteudo.setAdmin(null);
+	public Edicao removeEdicao(Edicao edicao) {
+		getEdicaos().remove(edicao);
+		edicao.setAdmin(null);
 
-		return edicaoConteudo;
+		return edicao;
 	}
 
-	public List<ElevarAdmin> getElevaradmins() {
-		return this.elevarAdmins;
+	public List<Elevacao> getElevacaos() {
+		return this.elevacaos;
 	}
 
-	public void setElevaradmins(List<ElevarAdmin> elevarAdmins) {
-		this.elevarAdmins = elevarAdmins;
+	public void setElevacaos(List<Elevacao> elevacaos) {
+		this.elevacaos = elevacaos;
 	}
 
-	public ElevarAdmin addElevaradmin(ElevarAdmin elevarAdmin) {
-		getElevaradmins().add(elevarAdmin);
-		elevarAdmin.setAdmin(this);
+	public Elevacao addElevacao(Elevacao elevacao) {
+		getElevacaos().add(elevacao);
+		elevacao.setAdmin(this);
 
-		return elevarAdmin;
+		return elevacao;
 	}
 
-	public ElevarAdmin removeElevaradmin(ElevarAdmin elevarAdmin) {
-		getElevaradmins().remove(elevarAdmin);
-		elevarAdmin.setAdmin(null);
+	public Elevacao removeElevacao(Elevacao elevacao) {
+		getElevacaos().remove(elevacao);
+		elevacao.setAdmin(null);
 
-		return elevarAdmin;
+		return elevacao;
 	}
 
 }

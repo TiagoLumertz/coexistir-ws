@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.coexistir.model.Evento;
 
-public interface AdminRepository extends JpaRepository<Evento, Integer> {
+public interface EventoRepository extends JpaRepository<Evento, Integer> {
 	
-	public Evento findByIdEventoLike(Integer idEvento);
+	Evento findByIdEventoLike(Integer idEvento);
 
 }

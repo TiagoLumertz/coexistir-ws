@@ -21,9 +21,9 @@ public class Conteudo implements Serializable {
 
 	private String nome;
 
-	//bi-directional many-to-one association to EdicaoConteudo
+	//bi-directional many-to-one association to Edicao
 	@OneToMany(mappedBy="conteudo")
-	private List<EdicaoConteudo> edicaoConteudos;
+	private List<Edicao> edicaos;
 
 	//bi-directional many-to-one association to Leitura
 	@OneToMany(mappedBy="conteudo")
@@ -60,26 +60,26 @@ public class Conteudo implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<EdicaoConteudo> getEdicaoconteudos() {
-		return this.edicaoConteudos;
+	public List<Edicao> getEdicaos() {
+		return this.edicaos;
 	}
 
-	public void setEdicaoconteudos(List<EdicaoConteudo> edicaoConteudos) {
-		this.edicaoConteudos = edicaoConteudos;
+	public void setEdicaos(List<Edicao> edicaos) {
+		this.edicaos = edicaos;
 	}
 
-	public EdicaoConteudo addEdicaoconteudo(EdicaoConteudo edicaoConteudo) {
-		getEdicaoconteudos().add(edicaoConteudo);
-		edicaoConteudo.setConteudo(this);
+	public Edicao addEdicao(Edicao edicao) {
+		getEdicaos().add(edicao);
+		edicao.setConteudo(this);
 
-		return edicaoConteudo;
+		return edicao;
 	}
 
-	public EdicaoConteudo removeEdicaoconteudo(EdicaoConteudo edicaoConteudo) {
-		getEdicaoconteudos().remove(edicaoConteudo);
-		edicaoConteudo.setConteudo(null);
+	public Edicao removeEdicao(Edicao edicao) {
+		getEdicaos().remove(edicao);
+		edicao.setConteudo(null);
 
-		return edicaoConteudo;
+		return edicao;
 	}
 
 	public List<Leitura> getLeituras() {

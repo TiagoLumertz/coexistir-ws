@@ -3,6 +3,7 @@ package com.coexistir.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -31,11 +32,21 @@ public class Evento implements Serializable {
 
 	private String descricao;
 
-	private int idCentro;
-
-	private int idUsuario;
-
 	private String nome;
+
+	//bi-directional many-to-one association to Checkin
+	@OneToMany(mappedBy="evento")
+	private List<Checkin> checkins;
+
+	//bi-directional many-to-one association to Centro
+	@ManyToOne
+	@JoinColumn(name="idCentro")
+	private Centro centro;
+
+	//bi-directional many-to-one association to Usuario
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
+	private Usuario usuario;
 
 	public Evento() {
 	}
@@ -80,28 +91,50 @@ public class Evento implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public int getIdCentro() {
-		return this.idCentro;
-	}
-
-	public void setIdCentro(int idCentro) {
-		this.idCentro = idCentro;
-	}
-
-	public int getIdUsuario() {
-		return this.idUsuario;
-	}
-
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
 	public String getNome() {
 		return this.nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Checkin> getCheckins() {
+		return this.checkins;
+	}
+
+	public void setCheckins(List<Checkin> checkins) {
+		this.checkins = checkins;
+	}
+
+	public Checkin addCheckin(Checkin checkin) {
+		getCheckins().add(checkin);
+		checkin.setEvento(this);
+
+		return checkin;
+	}
+
+	public Checkin removeCheckin(Checkin checkin) {
+		getCheckins().remove(checkin);
+		checkin.setEvento(null);
+
+		return checkin;
+	}
+
+	public Centro getCentro() {
+		return this.centro;
+	}
+
+	public void setCentro(Centro centro) {
+		this.centro = centro;
+	}
+
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

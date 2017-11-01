@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.coexistir.model.Centro;
 
-public interface AdminRepository extends JpaRepository<Centro, Integer> {
+public interface CentroRepository extends JpaRepository<Centro, Integer> {
 	
-	public Centro findByIdCentroLike(Integer idCentro);
+	Centro findByIdCentroLike(Integer idCentro);
 
 }

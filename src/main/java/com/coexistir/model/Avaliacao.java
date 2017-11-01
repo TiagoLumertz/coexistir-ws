@@ -16,7 +16,7 @@ public class Avaliacao implements Serializable {
 	@Id
 	private int idAvaliacao;
 
-	private String comentarioAvaliativo;
+	private String comentarioAvalativo;
 
 	private String sugestao;
 
@@ -36,12 +36,12 @@ public class Avaliacao implements Serializable {
 		this.idAvaliacao = idAvaliacao;
 	}
 
-	public String getcomentarioAvaliativo() {
-		return this.comentarioAvaliativo;
+	public String getComentarioAvalativo() {
+		return this.comentarioAvalativo;
 	}
 
-	public void setcomentarioAvaliativo(String comentarioAvaliativo) {
-		this.comentarioAvaliativo = comentarioAvaliativo;
+	public void setComentarioAvalativo(String comentarioAvalativo) {
+		this.comentarioAvalativo = comentarioAvalativo;
 	}
 
 	public String getSugestao() {

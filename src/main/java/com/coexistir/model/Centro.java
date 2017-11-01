@@ -42,6 +42,10 @@ public class Centro implements Serializable {
 	@OneToMany(mappedBy="centro")
 	private List<Checkin> checkins;
 
+	//bi-directional many-to-one association to Evento
+	@OneToMany(mappedBy="centro")
+	private List<Evento> eventos;
+
 	public Centro() {
 	}
 
@@ -129,6 +133,28 @@ public class Centro implements Serializable {
 		checkin.setCentro(null);
 
 		return checkin;
+	}
+
+	public List<Evento> getEventos() {
+		return this.eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	public Evento addEvento(Evento evento) {
+		getEventos().add(evento);
+		evento.setCentro(this);
+
+		return evento;
+	}
+
+	public Evento removeEvento(Evento evento) {
+		getEventos().remove(evento);
+		evento.setCentro(null);
+
+		return evento;
 	}
 
 }

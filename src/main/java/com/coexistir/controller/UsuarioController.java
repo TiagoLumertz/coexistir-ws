@@ -55,6 +55,18 @@ public class UsuarioController {
 		
 	}
 	
+	// LOGIN DE USUÁRIO
+	@RequestMapping(value = "{apelido}/{senha}", method = RequestMethod.GET)
+	public ResponseEntity<Usuario> fazerLogin(@PathVariable String apelido, @PathVariable String senha){
+		
+		Usuario usuario = this.usuarioRep.findByApelidoAndSenhaLike(apelido, senha);
+		if (usuario == null) {
+			return new ResponseEntity(new CustomErrorType("Login ou senha incorretos."), HttpStatus.OK);
+		}
+		return new ResponseEntity(usuario, HttpStatus.OK);
+	}
+		
+	
 	// ATUALIZANDO USUÁRIO
 	@RequestMapping(value = "", method=RequestMethod.PUT)
 	public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuario){		

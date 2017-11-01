@@ -15,17 +15,20 @@ public class Checkin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int idCheckIn;
+	private int idCheckin;
 
 	@Temporal(TemporalType.DATE)
 	private Date data;
-
-	private int idEvento;
 
 	//bi-directional many-to-one association to Centro
 	@ManyToOne
 	@JoinColumn(name="idCentro")
 	private Centro centro;
+
+	//bi-directional many-to-one association to Evento
+	@ManyToOne
+	@JoinColumn(name="idEvento")
+	private Evento evento;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
@@ -35,12 +38,12 @@ public class Checkin implements Serializable {
 	public Checkin() {
 	}
 
-	public int getIdCheckIn() {
-		return this.idCheckIn;
+	public int getIdCheckin() {
+		return this.idCheckin;
 	}
 
-	public void setIdCheckIn(int idCheckIn) {
-		this.idCheckIn = idCheckIn;
+	public void setIdCheckin(int idCheckin) {
+		this.idCheckin = idCheckin;
 	}
 
 	public Date getData() {
@@ -51,20 +54,20 @@ public class Checkin implements Serializable {
 		this.data = data;
 	}
 
-	public int getIdEvento() {
-		return this.idEvento;
-	}
-
-	public void setIdEvento(int idEvento) {
-		this.idEvento = idEvento;
-	}
-
 	public Centro getCentro() {
 		return this.centro;
 	}
 
 	public void setCentro(Centro centro) {
 		this.centro = centro;
+	}
+
+	public Evento getEvento() {
+		return this.evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
 
 	public Usuario getUsuario() {
