@@ -15,7 +15,11 @@ public class ElevarAdmin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+<<<<<<< HEAD
+	private int idElevarAdmin;
+=======
 	private int idElevAdmin;
+>>>>>>> 6b8b5875baab6642814421a7d5f37407e8fbcafc
 
 	@Temporal(TemporalType.DATE)
 	private Date data;
@@ -33,12 +37,21 @@ public class ElevarAdmin implements Serializable {
 	public ElevarAdmin() {
 	}
 
+<<<<<<< HEAD
+	public int getIdElevarAdmin() {
+		return this.idElevarAdmin;
+	}
+
+	public void setIdElevarAdmin(int idElevarAdmin) {
+		this.idElevarAdmin = idElevarAdmin;
+=======
 	public int getIdElevAdmin() {
 		return this.idElevAdmin;
 	}
 
 	public void setIdElevAdmin(int idElevAdmin) {
 		this.idElevAdmin = idElevAdmin;
+>>>>>>> 6b8b5875baab6642814421a7d5f37407e8fbcafc
 	}
 
 	public Date getData() {
