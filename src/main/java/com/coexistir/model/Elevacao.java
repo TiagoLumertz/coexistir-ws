@@ -15,9 +15,11 @@ public class Elevacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idElevacao;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name="data")
 	private Date data;
 
 	//bi-directional many-to-one association to Admin

@@ -16,30 +16,39 @@ public class Admin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idAdmin;
 
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="apelido")
 	private String apelido;
 
-	private String cidade;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_nasc")
-	private Date dataNasc;
-
-	private String email;
-
-	private String genero;
-
-	private String nome;
-
-	@Column(name="pos_religiosa")
-	private String posReligiosa;
-
+	@Column(name="rg")
 	private int rg;
 
-	private String senha;
+	@Column(name="genero")
+	private String genero;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name="nascimento")
+	private Date dataNasc;
+
+	@Column(name="posicaoReligiosa")
+	private String posReligiosa;
+
+	@Column(name="cidade")
+	private String cidade;
+
+	@Column(name="uf")
 	private String uf;
+
+	@Column(name="email")
+	private String email;
+
+	@Column(name="senha")
+	private String senha;
 
 	//bi-directional many-to-one association to Edicao
 	@OneToMany(mappedBy="admin")

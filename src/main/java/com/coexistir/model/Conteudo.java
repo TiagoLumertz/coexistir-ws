@@ -15,11 +15,14 @@ public class Conteudo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idConteudo;
 
-	private String descricao;
-
+	@Column(name="nome")
 	private String nome;
+
+	@Column(name="descricao")
+	private String descricao;
 
 	//bi-directional many-to-one association to Edicao
 	@OneToMany(mappedBy="conteudo")

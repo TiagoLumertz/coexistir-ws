@@ -16,23 +16,26 @@ public class Evento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEvento;
 
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="descricao")
+	private String descricao;
+	
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_cadastro")
+	@Column(name="dataCadastro")
 	private Date dataCadastro;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_inicio")
+	@Column(name="dataInicio")
 	private Date dataInicio;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="data_termino")
+	@Column(name="dataTermino")
 	private Date dataTermino;
-
-	private String descricao;
-
-	private String nome;
 
 	//bi-directional many-to-one association to Checkin
 	@OneToMany(mappedBy="evento")

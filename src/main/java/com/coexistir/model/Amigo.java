@@ -14,8 +14,10 @@ public class Amigo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idAmigo;
 
+	@Column(name="idContato")
 	private int idContato;
 
 	//bi-directional many-to-one association to Usuario

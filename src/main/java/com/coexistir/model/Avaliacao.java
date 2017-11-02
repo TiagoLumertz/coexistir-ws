@@ -14,10 +14,13 @@ public class Avaliacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idAvaliacao;
 
+	@Column(name="comentario")
 	private String comentarioAvalativo;
 
+	@Column(name="sugestao")
 	private String sugestao;
 
 	//bi-directional many-to-one association to Usuario

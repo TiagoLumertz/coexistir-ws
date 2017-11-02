@@ -16,22 +16,27 @@ public class Centro implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCentro;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_cadastro")
-	private Date dataCadastro;
-
-	private String endereco;
-
+	@Column(name="nome")
 	private String nome;
 
-	@Column(name="pos_religiosa")
+	@Column(name="endereco")
+	private String endereco;
+
+	@Column(name="posicaoReligiosa")
 	private String posReligiosa;
 
+	@Column(name="telefone")
 	private int telefone;
 
+	@Column(name="tipo")
 	private String tipo;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="dataCadastro")
+	private Date dataCadastro;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
