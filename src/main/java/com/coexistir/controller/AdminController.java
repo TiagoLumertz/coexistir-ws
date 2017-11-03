@@ -23,7 +23,7 @@ public class AdminController {
 	@Autowired
 	private AdminRepository adminRep;
 	
-	// BUSCAR TODOS OS USUÁRIOS
+	// BUSCAR TODOS OS ADMINS
 	@RequestMapping(value = "", method = RequestMethod.GET)	
 	public ResponseEntity<List<Admin>> buscarTodos(){				
 		List<Admin> users = adminRep.findAll();			
@@ -33,7 +33,7 @@ public class AdminController {
 		return new ResponseEntity(users, HttpStatus.OK);		
 	}
 	
-	// BUSCAR USUÁRIOS PELO ID
+	// BUSCAR ADMINS PELO ID
 	@RequestMapping(value = "{idAdmin}", method = RequestMethod.GET)
 	public ResponseEntity<Admin> buscarAdminPorId(@PathVariable("idAdmin") Integer idAdmin){
 		Admin admin = adminRep.findOne(idAdmin);
@@ -43,7 +43,7 @@ public class AdminController {
 		return new ResponseEntity(admin, HttpStatus.OK);
 	}
 	
-	// CADASTRAR USUÁRIO
+	// CADASTRAR ADMIN
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> cadastrarAdmin(@RequestBody Admin adminCad, UriComponentsBuilder ucBuilder){
 		
@@ -54,7 +54,7 @@ public class AdminController {
 		
 	}
 	
-	// ATUALIZANDO USUÁRIO
+	// ATUALIZANDO ADMIN
 	@RequestMapping(value = "", method=RequestMethod.PUT)
 	public ResponseEntity<Admin> atualizarAdmin(@RequestBody Admin admin){		
 		adminRep.save(admin);		
@@ -72,7 +72,7 @@ public class AdminController {
 			return new ResponseEntity(admin, HttpStatus.OK);
 		}
 	
-	// EXCLUINDO USUÁRIO (POR ID)
+	// EXCLUINDO ADMIN (POR ID)
 	@RequestMapping(value = "{idAdmin}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> excluirAdminPorId(@PathVariable("idAdmin") Integer idAdmin){
 		Admin u = adminRep.findOne(idAdmin);

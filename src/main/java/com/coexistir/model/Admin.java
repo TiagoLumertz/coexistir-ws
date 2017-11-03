@@ -22,10 +22,10 @@ public class Admin implements Serializable {
 	@Column(name="nome")
 	private String nome;
 	
-	@Column(name="apelido")
+	@Column(name="apelido", unique=true)
 	private String apelido;
 
-	@Column(name="rg")
+	@Column(name="rg", unique=true)
 	private int rg;
 
 	@Column(name="genero")
