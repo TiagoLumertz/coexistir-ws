@@ -47,7 +47,7 @@ public class UsuarioController {
 	// CADASTRAR USUÁRIO
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> cadastrarUsuario(@RequestBody Usuario usuarioCad, UriComponentsBuilder ucBuilder){
-		
+		System.out.println(usuarioCad.getDataNasc());
 		Usuario temp = usuarioRep.save(usuarioCad);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("{idUsuario}").buildAndExpand(temp.getIdUsuario()).toUri());

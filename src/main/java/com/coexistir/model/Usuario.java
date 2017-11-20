@@ -2,6 +2,9 @@ package com.coexistir.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -26,13 +29,14 @@ public class Usuario implements Serializable {
 	private String apelido;
 
 	@Column(name="rg", unique=true)
-	private int rg;
+	private String rg;
 	
 	@Column(name="genero")
 	private String genero;
 
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
 	@Temporal(TemporalType.DATE)
-	@Column(name="nascimento")
+	@Column(name="dataNasc")
 	private Date dataNasc;
 
 	@Column(name="posicaoReligiosa")
@@ -145,11 +149,11 @@ public class Usuario implements Serializable {
 		this.posReligiosa = posReligiosa;
 	}
 
-	public int getRg() {
+	public String getRg() {
 		return this.rg;
 	}
 
-	public void setRg(int rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 
