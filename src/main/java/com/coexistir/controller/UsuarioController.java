@@ -57,8 +57,7 @@ public class UsuarioController {
 	
 	// LOGIN DE USUÁRIO
 	@RequestMapping(value = "{apelido}/{senha}", method = RequestMethod.GET)
-	public ResponseEntity<Usuario> fazerLogin(@PathVariable String apelido, @PathVariable String senha){
-		
+	public ResponseEntity<Usuario> fazerLogin(@PathVariable String apelido, @PathVariable String senha){		
 		Usuario usuario = this.usuarioRep.findByApelidoAndSenhaLike(apelido, senha);
 		if (usuario == null) {
 			return new ResponseEntity(new CustomErrorType("Login ou senha incorretos."), HttpStatus.OK);
